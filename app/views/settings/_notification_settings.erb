@@ -1,0 +1,15 @@
+<fieldset>
+<legend><%= "推送设置" %></legend>
+    <p>
+        <%= content_tag(:label, '是否推送') %>
+<%= check_box_tag('settings[push]', 'yes', settings['push'] == 'yes' ) %>
+  <em class="info"><%= '开启才会推送' %></em>
+    </p>
+
+    <p>
+        <%= content_tag(:label, '地址') %>
+<%= text_field_tag('settings[url]', settings['url'], :size => 50) %>
+  <em class="info"><%= '推送地址' %></em>
+    </p>
+
+</fieldset>
