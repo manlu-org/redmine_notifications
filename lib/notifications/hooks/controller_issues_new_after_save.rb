@@ -10,12 +10,13 @@ module Notifications
             :project_id => context[:project].id,
             :project_name => context[:project].name,
             :issue_id => context[:issue].id,
+            :issue_subject => context[:issue].subject,
             :issue_status_id => context[:issue].status_id,
             :issue_status_name => IssueStatus.find(context[:issue].status_id).name,
             :assigned_to_id => context[:issue].assigned_to_id,
             :assigned_to_username => if (u = User.find_by_id(context[:issue].assigned_to_id)) != nil ; u.name; else "" end,
             :issue_author_id => context[:issue].author_id,
-            :issue_auth_name => User.find_by_id(context[:issue].author_id).name
+            :issue_author_name => User.find_by_id(context[:issue].author_id).name
           }
 
           Thread.new do
@@ -31,12 +32,13 @@ module Notifications
             :project_id => context[:project].id,
             :project_name => context[:project].name,
             :issue_id => context[:issue].id,
+            :issue_subject => context[:issue].subject,
             :issue_status_id => context[:issue].status_id,
             :issue_status_name => IssueStatus.find(context[:issue].status_id).name,
             :assigned_to_id => context[:issue].assigned_to_id,
             :assigned_to_username => if (u = User.find_by_id(context[:issue].assigned_to_id)) != nil ; u.name; else ""; end,
             :issue_author_id => context[:issue].author_id,
-            :issue_auth_name => User.find_by_id(context[:issue].author_id).name
+            :issue_author_name => User.find_by_id(context[:issue].author_id).name
           }
 
           Thread.new do
